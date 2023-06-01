@@ -14,7 +14,8 @@ namespace PlantApp
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Username=postgres;Password=password123;Database=PlantTracker")
+            var connectionString = "Host=localhost;Username=postgres;Password=password123;Database=PlantTracker";
+            optionsBuilder.UseNpgsql(connectionString)
                 .UseSnakeCaseNamingConvention();
         }
     }
