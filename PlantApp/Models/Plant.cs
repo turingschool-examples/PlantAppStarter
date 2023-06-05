@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlantApp
+namespace PlantApp.Models
 {
     public class Plant
     {
@@ -12,5 +12,6 @@ namespace PlantApp
         public string Type { get; set; }
         public DateTime PurchaseDate { get; set; }
         public Room Room { get; set; }
+        public DateTime LastWatered { get; set; }
     }
 }

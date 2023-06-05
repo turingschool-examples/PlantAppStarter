@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using PlantApp.Data;
@@ -11,9 +12,11 @@ using PlantApp.Data;
 namespace PlantApp.Migrations
 {
     [DbContext(typeof(PlantTrackerContext))]
-    partial class PlantTrackerContextModelSnapshot : ModelSnapshot
+    [Migration("20230605163916_AddLastWateredProperty")]
+    partial class AddLastWateredProperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,6 +68,10 @@ namespace PlantApp.Migrations
                         .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("HasSunlight")
+                        .HasColumnType("boolean")
+                        .HasColumnName("has_sunlight");
 
                     b.Property<string>("Name")
                         .IsRequired()

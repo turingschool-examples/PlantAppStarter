@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PlantApp.Models;
 
-namespace PlantApp
+namespace PlantApp.Data
 {
     public class PlantTrackerContext : DbContext
     {
@@ -14,9 +15,9 @@ namespace PlantApp
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Host=localhost;Username=postgres;Password=password123;Database=PlantTracker";
-            optionsBuilder.UseNpgsql(connectionString)
-                .UseSnakeCaseNamingConvention();
+            var connectionString =
+                "Host=localhost;Username=postgres;Password=password123;Database=PlantTracker";
+            optionsBuilder.UseNpgsql(connectionString).UseSnakeCaseNamingConvention();
         }
     }
 }
