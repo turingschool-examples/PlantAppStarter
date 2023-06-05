@@ -12,5 +12,6 @@ namespace PlantApp
         public string Type { get; set; }
         public DateTime PurchaseDate { get; set; }
         public Room Room { get; set; }
+        public List<Tag> Tags { get; set; } = new List<Tag>();
     }
 }
